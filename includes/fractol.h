@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:51:41 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 13:28:09 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 14:06:03 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,14 @@
 # define WIN_Y	1000
 # define WIN_MATRIX	WIN_X * WIN_Y
 
-# define IRGB_WHITE	16777215
+# define IRGB_GRAY		3355443
+# define IRGB_WHITE		16777215
+# define IRGB_LIME		8388352
+# define IRGB_CHERRY	15865942
+# define IRGB_AQUA		7273983
+# define IRGB_PINK		13704642
+# define IRGB_ORANGE	16758835
+# define IRGB_PURPLE	3356415
 
 # define MANDELBROT	"Mandelbrot"
 # define JULIA		"Julia"

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:25:25 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 13:25:02 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 14:14:36 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	fl_julia(t_fl *fl, int j)
 	double	tmp;
 
 	i = 0;
-	iz =fl->map[j].ic;
-	rz =fl->map[j].rc;
+	iz = fl->map[j].ic;
+	rz = fl->map[j].rc;
 	while (i < fl->depth)
 	{
 		tmp = (rz * rz) - (iz * iz);

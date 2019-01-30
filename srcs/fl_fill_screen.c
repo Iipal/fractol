@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:05:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 13:20:18 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 14:14:27 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	fl_fill_screen(t_fl *fl)
 			fl->mlx->screen[i] = !fl->color;
 	}
 	mlx_put_image_to_window(MPTR, WPTR, IPTR, 0, 0);
+	ft_bzero(fl->mlx->screen, sizeof(int) * WIN_MATRIX);
 }
