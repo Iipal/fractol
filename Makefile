@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 14:52:06 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/30 16:37:55 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/30 18:23:55 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ clean:
 fclean: clean
 	@$(LMAKE) fclean
 	@$(DEL) $(NAME)
-	@echo "$(RED)deleted$(WHITE): ./fdf"
+	@echo "$(RED)deleted$(WHITE): ./fractol"
 
 re: fclean all
 
