@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:17:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 13:28:03 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 17:26:54 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,7 @@ static t_map	*add_init_map(t_fl *fl)
 		out[i].x = x++;
 		out[i++].y = y;
 	}
-	i = -1;
-	while (++i < WIN_MATRIX)
-	{
-		out[i].rc = out[i].x *
-			((fl->limit->rmax - fl->limit->rmin) / WIN_Y) + fl->limit->rmin;
-		out[i].ic = out[i].y *
-			((fl->limit->imax - fl->limit->imin) / WIN_Y) + fl->limit->imin;
-	}
+	fl_fill_ir(out, fl->limit);
 	return (out);
 }
 
@@ -61,7 +54,7 @@ bool			fl_init_fractol(t_fl *fl)
 	int	end;
 
 	*fl = (t_fl){NULL, fl->mode, fl->mnum, NULL, NULL, {0, 0, 0, 0},
-		IRGB_WHITE, DEPTH_DEF, 0, 0};
+		IRGB_WHITE, DEPTH_DEF, 0, 0, false};
 	_NOTIS_F(fl->mlx = malloc(sizeof(t_mlx)));
 	_NOTIS_F(MPTR = mlx_init());
 	_NOTIS_F(WPTR = mlx_new_window(MPTR, WIN_X, WIN_Y, fl->mode));
@@ -69,5 +62,6 @@ bool			fl_init_fractol(t_fl *fl)
 	_NOTIS_F(SPTR = (uint*)mlx_get_data_addr(IPTR, &bpp, &sl, &end));
 	_NOTIS_F(fl->limit = add_set_limits(fl));
 	_NOTIS_F(fl->map = add_init_map(fl));
+	fl_refresh_screen(fl);
 	return (true);
 }

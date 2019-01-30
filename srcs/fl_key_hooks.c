@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 15:40:19 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 14:06:18 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 16:39:15 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ int			fl_key_hooks(int key, t_fl *fl)
 			fl->depth = DEPTH_MAX;
 	if (key == KEY_C)
 		add_change_color(&(fl->color));
-	fl_fill_screen(fl);
+	fl_refresh_screen(fl);
 	return (0);
 }

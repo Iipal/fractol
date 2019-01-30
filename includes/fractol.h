@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:51:41 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 14:06:03 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 17:28:51 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,39 @@
 
 # include "../libft/includes/libft.h"
 # include "errno_msg.h"
-#include<stdio.h>
+# include <math.h>
 # include <mlx.h>
 
 # define WIN_X	1000
 # define WIN_Y	1000
 # define WIN_MATRIX	WIN_X * WIN_Y
 
-# define IRGB_GRAY		3355443
-# define IRGB_WHITE		16777215
-# define IRGB_LIME		8388352
-# define IRGB_CHERRY	15865942
-# define IRGB_AQUA		7273983
-# define IRGB_PINK		13704642
-# define IRGB_ORANGE	16758835
-# define IRGB_PURPLE	3356415
+# define MOUSE_MASK	0
 
-# define MANDELBROT	"Mandelbrot"
-# define JULIA		"Julia"
+# define MOUSE_SCROLLDOWN	4
+# define MOUSE_SCROLLUP		5
+# define MOUSE_MOVE			6
+
+# define MLEFT_BUTTON	1
+# define MSCROLL_DOWN	4
+# define MSCROLL_UPS	5
+
+# define IRGB_GRAY		0x0a0a0a
+# define IRGB_WHITE		0xffffff
+# define IRGB_LIME		0x53ff30
+# define IRGB_CHERRY	0xff245B
+# define IRGB_AQUA		0x47d1ff
+# define IRGB_PINK		0xcc067f
+# define IRGB_ORANGE	0xffbd0a
+# define IRGB_PURPLE	0xed47ff
+
+# define MANDELBROT		"Mandelbrot"
+# define JULIA			"Julia"
+# define BURNINGSHIP	"Burning Ship"
 
 # define DEPTH_INC	5
-# define DEPTH_MIN	5
-# define DEPTH_DEF	50
+# define DEPTH_MIN	0
+# define DEPTH_DEF	10
 # define DEPTH_MAX	5000
 
 enum	e_bool {false, true};
@@ -108,18 +119,28 @@ typedef struct	s_fl
 	int		depth;
 	double	jci;
 	double	jcr;
+	bool	is_julia;
 }				t_fl;
+
+bool			fl_init_fractol(t_fl *fl);
 
 typedef int (*fptr_fls)(t_fl*, int);
 
 int				fl_mandelbrot(t_fl *fl, int j);
 int				fl_julia(t_fl *fl, int j);
+int				fl_burn_ship(t_fl *fl, int j);
 
-bool			fl_init_fractol(t_fl *fl);
-void			fl_fill_screen(t_fl *fl);
-
+void			fl_rendering(t_fl *fl);
+void			fl_refresh_screen(t_fl *fl);
 
 int				fl_key_hooks(int key, t_fl *fl);
+int				fl_mouse_hooks(int button, int x, int y, t_fl  *fl);
+int				fl_mouse_click(int button, int x, int y, t_fl  *fl);
+int				fl_mouse_julia(int x, int y, t_fl *fl);
+
+void			fl_fill_ir(t_map *map, t_limit *limit);
+double			fl_ci(t_limit *limit, double y);
+double			fl_cr(t_limit *limit, double x);
 
 void			fl_free(t_fl *fl);
 

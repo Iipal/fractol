@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 14:52:06 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/30 13:08:58 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/30 16:37:55 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC = gcc -march=native
 CFLAGS = -Wall -Wextra -Werror -Ofast
 
 SRC = srcs/main.c srcs/fl_init.c srcs/fl_key_hooks.c srcs/fl_free.c \
-srcs/fl_fill_screen.c srcs/fl_fractols.c
+srcs/fl_refresh_screen.c srcs/fl_fractols.c srcs/fl_mouse_hooks.c srcs/fl_cir.c
 
 OBJ = $(SRC:.c=.o)
 
