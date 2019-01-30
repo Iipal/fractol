@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:51:41 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 17:41:55 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 18:12:29 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,12 @@
 # define MANDELBROT		"Mandelbrot"
 # define JULIA			"Julia"
 # define BURNINGSHIP	"Burning Ship"
+# define JULIAV2		"Julia v2"
+# define JULIAV3		"Julia v3"
 
 # define DEPTH_INC	5
 # define DEPTH_MIN	0
-# define DEPTH_DEF	10
+# define DEPTH_DEF	50
 # define DEPTH_MAX	5000
 
 enum	e_bool {false, true};
@@ -132,6 +134,8 @@ typedef int (*fptr_fls)(t_fl*, int);
 int				fl_mandelbrot(t_fl *fl, int j);
 int				fl_julia(t_fl *fl, int j);
 int				fl_burn_ship(t_fl *fl, int j);
+int				fl_juliav2(t_fl *fl, int j);
+int				fl_juliav3(t_fl *fl, int j);
 
 void			fl_rendering(t_fl *fl);
 void			fl_refresh_screen(t_fl *fl);
