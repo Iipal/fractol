@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fl_key_hooks.c                                     :+:      :+:    :+:   */
+/*   fl_fill_screen.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/29 15:40:19 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 12:19:24 by tmaluh           ###   ########.fr       */
+/*   Created: 2019/01/30 12:05:31 by tmaluh            #+#    #+#             */
+/*   Updated: 2019/01/30 13:20:18 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int		fl_key_hooks(int key, t_fl *fl)
+void	fl_fill_screen(t_fl *fl)
 {
-	if (key == ESC)
+	const fptr_fls	fls[] = {&fl_mandelbrot, &fl_julia};
+	int				i;
+	int				res;
+
+	i = -1;
+	while (++i < WIN_MATRIX)
 	{
-		fl_free(fl);
-		exit(EXIT_SUCCESS);
+		if ((res = fls[fl->mnum - 1](fl, i)) < fl->depth)
+			fl->mlx->screen[i] = (res + 1 / i + 1) * fl->color;
+		else
+			fl->mlx->screen[i] = !fl->color;
 	}
-	return (0);
+	mlx_put_image_to_window(MPTR, WPTR, IPTR, 0, 0);
 }
