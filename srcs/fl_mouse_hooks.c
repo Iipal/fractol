@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 15:47:48 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 17:29:05 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 17:35:45 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		fl_mouse_click(int button, int x, int y, t_fl  *fl)
 }
 
 #include <stdio.h>
-int		fl_mouse_hooks(int button, int x, int y, t_fl  *fl)
+int		fl_mouse_scrolls(int button, int x, int y, t_fl  *fl)
 {
 	if (button == MOUSE_SCROLLUP || button == MOUSE_SCROLLDOWN)
 		add_mouse_zoom(button, x, y, fl);

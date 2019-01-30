@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:51:41 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 17:28:51 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 17:41:55 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 # define WIN_X	1000
 # define WIN_Y	1000
 # define WIN_MATRIX	WIN_X * WIN_Y
+
+# define WIN_EXT	17
+# define WIN_EXTM	(1L << 17)
 
 # define MOUSE_MASK	0
 
@@ -133,8 +136,9 @@ int				fl_burn_ship(t_fl *fl, int j);
 void			fl_rendering(t_fl *fl);
 void			fl_refresh_screen(t_fl *fl);
 
+int				fl_khook_killwindow(t_fl *fl);
 int				fl_key_hooks(int key, t_fl *fl);
-int				fl_mouse_hooks(int button, int x, int y, t_fl  *fl);
+int				fl_mouse_scrolls(int button, int x, int y, t_fl  *fl);
 int				fl_mouse_click(int button, int x, int y, t_fl  *fl);
 int				fl_mouse_julia(int x, int y, t_fl *fl);
 

@@ -6,11 +6,18 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 15:40:19 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 16:39:15 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 17:42:21 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+int			fl_khook_killwindow(t_fl *fl)
+{
+	fl_free(fl);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
 
 static void	add_change_color(int *color)
 {
