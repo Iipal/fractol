@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 15:47:48 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 18:08:15 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 18:22:13 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	add_mouse_zoom(int button, int x, int y, t_fl *fl)
 	fl_refresh_screen(fl);
 }
 
-int		fl_mouse_click(int button, int x, int y, t_fl  *fl)
+int			fl_mouse_click(int button, int x, int y, t_fl *fl)
 {
 	(void)x;
 	(void)y;
@@ -38,14 +38,14 @@ int		fl_mouse_click(int button, int x, int y, t_fl  *fl)
 	return (0);
 }
 
-int		fl_mouse_scrolls(int button, int x, int y, t_fl  *fl)
+int			fl_mouse_scrolls(int button, int x, int y, t_fl *fl)
 {
 	if (button == MOUSE_SCROLLUP || button == MOUSE_SCROLLDOWN)
 		add_mouse_zoom(button, x, y, fl);
 	return (1);
 }
 
-int		fl_mouse_julia(int x, int y, t_fl *fl)
+int			fl_mouse_julia(int x, int y, t_fl *fl)
 {
 	if ((fl->mnum == 2 || fl->mnum == 4 || fl->mnum == 5) && fl->is_julia)
 	{

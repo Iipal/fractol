@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:51:41 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 18:12:29 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 18:21:10 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ typedef struct	s_fl
 
 bool			fl_init_fractol(t_fl *fl);
 
-typedef int (*fptr_fls)(t_fl*, int);
+typedef int	(*t_fptr_fls)(t_fl*, int);
 
 int				fl_mandelbrot(t_fl *fl, int j);
 int				fl_julia(t_fl *fl, int j);
@@ -142,8 +142,8 @@ void			fl_refresh_screen(t_fl *fl);
 
 int				fl_khook_killwindow(t_fl *fl);
 int				fl_key_hooks(int key, t_fl *fl);
-int				fl_mouse_scrolls(int button, int x, int y, t_fl  *fl);
-int				fl_mouse_click(int button, int x, int y, t_fl  *fl);
+int				fl_mouse_scrolls(int button, int x, int y, t_fl *fl);
+int				fl_mouse_click(int button, int x, int y, t_fl *fl);
 int				fl_mouse_julia(int x, int y, t_fl *fl);
 
 void			fl_fill_ir(t_map *map, t_limit *limit);

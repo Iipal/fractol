@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:53:10 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 17:47:18 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 18:22:27 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 static void		usage(void)
 {
 	_MSGN("Usage: ./fractol <only_number>");
-	_MSG("\t1. "); _MSGN(MANDELBROT);
-	_MSG("\t2. "); _MSGN(JULIA);
-	_MSG("\t3. "); _MSGN(BURNINGSHIP);
-	_MSG("\t4. "); _MSGN(JULIAV2);
-	_MSG("\t5. "); _MSGN(JULIAV3);
+	_MSG("\t1. ");
+	_MSGN(MANDELBROT);
+	_MSG("\t2. ");
+	_MSGN(JULIA);
+	_MSG("\t3. ");
+	_MSGN(BURNINGSHIP);
+	_MSG("\t4. ");
+	_MSGN(JULIAV2);
+	_MSG("\t5. ");
+	_MSGN(JULIAV3);
 }
 
 int				main(int argc, cstring argv[])

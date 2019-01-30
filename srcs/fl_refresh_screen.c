@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:05:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 18:08:07 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/30 18:21:20 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	fl_refresh_screen(t_fl *fl)
 {
-	const fptr_fls	fls[] = {&fl_mandelbrot, &fl_julia, &fl_burn_ship,
+	const t_fptr_fls	fls[] = {&fl_mandelbrot, &fl_julia, &fl_burn_ship,
 								&fl_juliav2, &fl_juliav3};
-	int				i;
-	int				res;
+	int					i;
+	int					res;
 
 	i = -1;
 	ft_bzero(fl->mlx->screen, sizeof(int) * WIN_MATRIX);
