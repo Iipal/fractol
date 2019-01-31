@@ -22,7 +22,7 @@ When you have already installed MLX library you can use this simple rules:
 ```
 
 - Increase\Descrease fractal interations. `[+ or -]`
-- Rotate. (mouse only for Julia(2))
+- Rotate. (mouse only for 2-4-5 fractal numbers)
 - Close FdF. `[ESC]`
 - Bonus. `[C]`
 
