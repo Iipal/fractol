@@ -12,7 +12,7 @@ For correct work program & project need install MLX library. (Use this [MLX](htt
 When you have already installed MLX library you can use this simple rules:
 - **make**: Compile all.
 - **make clean**: Delete temporary files.
-- **make fclean**: Delete executable FdF file & libft library.
+- **make fclean**: Delete executable fractol file & libft library.
 - **make re**: It's rules - **make fclean** & **make** in one.
 
 ## Usage:
@@ -23,7 +23,7 @@ When you have already installed MLX library you can use this simple rules:
 
 - Increase\Descrease fractal interations. `[+ or -]`
 - Rotate. (mouse only for 2-4-5 fractal numbers)
-- Close FdF. `[ESC]`
+- Close fractol. `[ESC]`
 - Bonus. `[C]`
 
 ![](https://raw.githubusercontent.com/Iipal/fractol/master/screen.png)
