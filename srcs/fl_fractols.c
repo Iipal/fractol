@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:25:25 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/08/07 09:25:13 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 11:25:29 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ size_t	fl_mandelbrot(t_fl *fl, size_t j)
 	double	tmp;
 
 	i = ~0UL;
-	iz = 0;
-	rz = 0;
-	while (++i < fl->depth)
+	iz = 0.0;
+	rz = 0.0;
+	while (fl->depth > ++i)
 	{
-		tmp = (rz * rz) - (iz * iz);
-		iz = 2 * rz * iz + fl->map[j].ic;
+		tmp = rz * rz - iz * iz;
+		iz = 2.0 * rz * iz + fl->map[j].ic;
 		rz = tmp + fl->map[j].rc;
-		if ((rz * rz + iz * iz) > 4)
+		if (rz * rz + iz * iz > 4.0)
 			break ;
 	}
 	return (i);
@@ -43,12 +43,12 @@ size_t	fl_julia(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = fl->map[j].ic;
 	rz = fl->map[j].rc;
-	while (++i < fl->depth)
+	while (fl->depth > ++i)
 	{
 		tmp = (rz * rz) - (iz * iz);
-		iz = 2 * rz * iz + fl->jci;
+		iz = 2.0 * rz * iz + fl->jci;
 		rz = tmp + fl->jcr;
-		if ((rz * rz + iz * iz) > 4)
+		if ((rz * rz + iz * iz) > 4.0)
 			break ;
 	}
 	return (i);
@@ -62,14 +62,14 @@ size_t	fl_burn_ship(t_fl *fl, size_t j)
 	double	tmp;
 
 	i = ~0UL;
-	iz = 0;
-	rz = 0;
-	while (++i < fl->depth)
+	iz = 0.0;
+	rz = 0.0;
+	while (fl->depth > ++i)
 	{
 		tmp = ((rz * rz) - (iz * iz));
-		iz = 2 * fabs(rz * iz) + fl->map[j].ic;
+		iz = 2.0 * fabs(rz * iz) + fl->map[j].ic;
 		rz = tmp + fl->map[j].rc;
-		if ((rz * rz + iz * iz) > 4)
+		if ((rz * rz + iz * iz) > 4.0)
 			break ;
 	}
 	return (i);
@@ -85,7 +85,7 @@ size_t	fl_juliav2(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = fl->map[j].ic;
 	rz = fl->map[j].rc;
-	while (++i < fl->depth)
+	while (fl->depth > ++i)
 	{
 		tmp = (rz * rz) - (iz * iz);
 		iz = 3.1 * (rz * iz + fl->jci);
@@ -106,12 +106,12 @@ size_t	fl_juliav3(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = fl->map[j].ic;
 	rz = fl->map[j].rc;
-	while (++i < fl->depth)
+	while (fl->depth > ++i)
 	{
 		tmp = (rz * rz) + (iz * iz);
-		iz = 2 * rz * iz + fl->jci;
-		rz = ((size_t)tmp & 3) + fl->jcr;
-		if ((rz * rz + iz * iz) > 4)
+		iz = 2.0 * rz * iz + fl->jci;
+		rz = ((size_t)tmp & 3UL) + fl->jcr;
+		if ((rz * rz + iz * iz) > 4.0)
 			break ;
 	}
 	return (i);

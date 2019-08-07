@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 15:47:48 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 18:22:13 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 11:39:00 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ int			fl_mouse_click(int button, int x, int y, t_fl *fl)
 {
 	(void)x;
 	(void)y;
-	if (button == MLEFT_BUTTON)
+	if (MLEFT_BUTTON == button)
 		fl->is_julia = !fl->is_julia;
 	return (0);
 }
 
 int			fl_mouse_scrolls(int button, int x, int y, t_fl *fl)
 {
-	if (button == MOUSE_SCROLLUP || button == MOUSE_SCROLLDOWN)
+	if (MOUSE_SCROLLUP == button || MOUSE_SCROLLDOWN == button)
 		add_mouse_zoom(button, x, y, fl);
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/06 14:43:13 by tmaluh            #+#    #+#              #
-#    Updated: 2019/08/07 09:17:48 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/08/07 10:03:40 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,15 @@ CFLAGS := -Wall -Wextra -Werror -Wunused
 IFLAGS := -I $(CURDIR)/includes \
 	-I $(CURDIR)/libft/includes
 LIBSINC :=
-LIBS := -lmlx -lXext -lX11 -lm
+LIBS :=
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	LIBS += -lmlx -lXext -lX11 -lm
+endif
+ifeq ($(UNAME_S),Darwin)
+	LIBS += -lmlx -lm -framework OpenGL -framework AppKit
+endif
 
 SRCS := $(abspath $(wildcard srcs/*.c srcs/*/*.c srcs/*/*/*.c))
 OBJ := $(SRCS:.c=.o)

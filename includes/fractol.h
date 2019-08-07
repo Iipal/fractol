@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:51:41 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/08/07 09:26:04 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 11:26:49 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include <math.h>
 # include <mlx.h>
 
-# define WIN_X	400
-# define WIN_Y	400
+# define WIN_X	800
+# define WIN_Y	800
 # define WIN_MATRIX	WIN_X * WIN_Y
 
 # define WIN_EXT	17
@@ -58,17 +58,17 @@
 # define JULIAV2		"Julia v2"
 # define JULIAV3		"Julia v3"
 
-# define DEPTH_INC	5
-# define DEPTH_MIN	0
-# define DEPTH_DEF	50
-# define DEPTH_MAX	5000
+# define DEPTH_INC	5UL
+# define DEPTH_MIN	0UL
+# define DEPTH_DEF	50UL
+# define DEPTH_MAX	5000UL
 
 typedef struct	s_mlx
 {
-	void		*mlx;
-	void		*win;
-	void		*img;
-	uint32_t	*screen;
+	void	*mlx;
+	void	*win;
+	void	*img;
+	int32_t	*screen;
 }				t_mlx;
 
 typedef struct	s_limit
@@ -101,8 +101,8 @@ typedef struct	s_fl
 	size_t		depth;
 	double		jci;
 	double		jcr;
+	uint8_t		mnum;
 	bool		is_julia;
-	uint8_t		mnum:4;
 }				t_fl;
 
 bool			fl_init_fractol(t_fl *fl);

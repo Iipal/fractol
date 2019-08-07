@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:17:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/08/07 09:09:13 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 11:26:59 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,14 @@ static t_map	*add_init_map(t_fl *fl)
 	MEM(t_map, out, WIN_MATRIX + 1, E_ALLOC);
 	x = 0UL;
 	y = 0UL;
-	i = ~0UL;
-	while (WIN_Y > ++i)
+	i = 0UL;
+	while (WIN_Y > y)
 	{
-		if (x == WIN_X && !(x = 0))
+		if (WIN_X == x)
+		{
+			x = 0UL;
 			++y;
+		}
 		out[i].x = x++;
 		out[i++].y = y;
 	}
@@ -53,14 +56,14 @@ bool			fl_init_fractol(t_fl *fl)
 	int	sl;
 	int	end;
 
-	*fl = (t_fl){NULL, fl->mode, NULL, NULL, {0, 0, 0, 0},
-		IRGB_WHITE, DEPTH_DEF, 0, 0, false, fl->mnum};
+	*fl = (t_fl){NULL, fl->mode, NULL, NULL, {0.0, 0.0, 0.0, 0.0},
+				IRGB_WHITE, DEPTH_DEF, 0.0, 0.0, fl->mnum, false};
 	MEM(t_mlx, fl->mlx, 1UL, E_ALLOC);
 	NO_F(fl->mlx->mlx = mlx_init());
 	NO_F(fl->mlx->win = mlx_new_window(fl->mlx->mlx, WIN_X, WIN_Y, fl->mode));
 	NO_F(fl->mlx->img = mlx_new_image(fl->mlx->mlx, WIN_X, WIN_Y));
 	NO_F(fl->mlx->screen
-		= (uint32_t*)mlx_get_data_addr(fl->mlx->img, &bpp, &sl, &end));
+		= (int32_t*)mlx_get_data_addr(fl->mlx->img, &bpp, &sl, &end));
 	NO_F(fl->limit = add_set_limits(fl));
 	NO_F(fl->map = add_init_map(fl));
 	fl_refresh_screen(fl);
