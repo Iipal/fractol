@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:53:10 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/08/07 11:37:17 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 17:12:13 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,11 @@
 
 static void		usage(void)
 {
-	ft_putendl("Usage: ./fractol <only_number>");
-	ft_putstr("\t1. ");
-	ft_putendl(MANDELBROT);
-	ft_putstr("\t2. ");
-	ft_putendl(JULIA);
-	ft_putstr("\t3. ");
-	ft_putendl(BURNINGSHIP);
-	ft_putstr("\t4. ");
-	ft_putendl(JULIAV2);
-	ft_putstr("\t5. ");
-	ft_putendl(JULIAV3);
+	ft_putendl(E_USAGE "\n\t\t 1. " MANDELBROT);
+	ft_putendl("\t\t 2. " JULIA);
+	ft_putendl("\t\t 3. " BURNINGSHIP);
+	ft_putendl("\t\t 4. " JULIAV2);
+	ft_putendl("\t\t 5. " JULIAV3);
 }
 
 int				main(int argc, char *argv[])
