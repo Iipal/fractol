@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 14:51:41 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/08/07 11:26:49 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 17:45:52 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@
 #  include "linux_keys.h"
 # endif
 
+#include <time.h>
+#include <stdio.h>
+
 # include "libft.h"
 # include "errno_msg.h"
+# include <pthread.h>
 # include <math.h>
 # include <mlx.h>
 
@@ -58,10 +62,10 @@
 # define JULIAV2		"Julia v2"
 # define JULIAV3		"Julia v3"
 
-# define DEPTH_INC	5UL
-# define DEPTH_MIN	0UL
-# define DEPTH_DEF	50UL
-# define DEPTH_MAX	5000UL
+# define DEPTH_INC	5
+# define DEPTH_MIN	0
+# define DEPTH_DEF	50
+# define DEPTH_MAX	5000
 
 typedef struct	s_mlx
 {
@@ -98,9 +102,9 @@ typedef struct	s_fl
 	t_limit		*limit;
 	t_limit		reset_limits;
 	uint32_t	color;
-	size_t		depth;
 	double		jci;
 	double		jcr;
+	int16_t		depth;
 	uint8_t		mnum;
 	bool		is_julia;
 }				t_fl;

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:17:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/08/07 11:26:59 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 17:44:49 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool			fl_init_fractol(t_fl *fl)
 	int	end;
 
 	*fl = (t_fl){NULL, fl->mode, NULL, NULL, {0.0, 0.0, 0.0, 0.0},
-				IRGB_WHITE, DEPTH_DEF, 0.0, 0.0, fl->mnum, false};
+				IRGB_WHITE, 0.0, 0.0, DEPTH_DEF, fl->mnum, false};
 	MEM(t_mlx, fl->mlx, 1UL, E_ALLOC);
 	NO_F(fl->mlx->mlx = mlx_init());
 	NO_F(fl->mlx->win = mlx_new_window(fl->mlx->mlx, WIN_X, WIN_Y, fl->mode));
@@ -66,6 +66,5 @@ bool			fl_init_fractol(t_fl *fl)
 		= (int32_t*)mlx_get_data_addr(fl->mlx->img, &bpp, &sl, &end));
 	NO_F(fl->limit = add_set_limits(fl));
 	NO_F(fl->map = add_init_map(fl));
-	fl_refresh_screen(fl);
 	return (true);
 }

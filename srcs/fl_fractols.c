@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:25:25 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/08/07 11:25:29 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 17:45:17 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	fl_mandelbrot(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = 0.0;
 	rz = 0.0;
-	while (fl->depth > ++i)
+	while ((size_t)fl->depth > ++i)
 	{
 		tmp = rz * rz - iz * iz;
 		iz = 2.0 * rz * iz + fl->map[j].ic;
@@ -43,7 +43,7 @@ size_t	fl_julia(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = fl->map[j].ic;
 	rz = fl->map[j].rc;
-	while (fl->depth > ++i)
+	while ((size_t)fl->depth > ++i)
 	{
 		tmp = (rz * rz) - (iz * iz);
 		iz = 2.0 * rz * iz + fl->jci;
@@ -64,7 +64,7 @@ size_t	fl_burn_ship(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = 0.0;
 	rz = 0.0;
-	while (fl->depth > ++i)
+	while ((size_t)fl->depth > ++i)
 	{
 		tmp = ((rz * rz) - (iz * iz));
 		iz = 2.0 * fabs(rz * iz) + fl->map[j].ic;
@@ -85,7 +85,7 @@ size_t	fl_juliav2(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = fl->map[j].ic;
 	rz = fl->map[j].rc;
-	while (fl->depth > ++i)
+	while ((size_t)fl->depth > ++i)
 	{
 		tmp = (rz * rz) - (iz * iz);
 		iz = 3.1 * (rz * iz + fl->jci);
@@ -106,7 +106,7 @@ size_t	fl_juliav3(t_fl *fl, size_t j)
 	i = ~0UL;
 	iz = fl->map[j].ic;
 	rz = fl->map[j].rc;
-	while (fl->depth > ++i)
+	while ((size_t)fl->depth > ++i)
 	{
 		tmp = (rz * rz) + (iz * iz);
 		iz = 2.0 * rz * iz + fl->jci;
