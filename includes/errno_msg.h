@@ -6,14 +6,15 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 15:10:30 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 18:20:08 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 09:16:15 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRNO_MSG_H
 # define ERRNO_MSG_H
 
-# define _ERR_ALLOC_MEM_	"Memory allocated error."
-# define _ERR_INVALID_ARGS_	"Invalid number in arguments."
+# define E_USAGE "Usage: ./fractol <number> (1 - 5)"
+# define E_ALLOC "Memory allocated error."
+# define E_ARG_NUM "Invalid number in arguments."
 
 #endif

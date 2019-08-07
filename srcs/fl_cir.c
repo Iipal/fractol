@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 15:56:22 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 18:22:02 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 09:26:30 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ double	fl_cr(t_limit *limit, double x)
 
 void	fl_fill_ir(t_map *map, t_limit *limit)
 {
-	int	i;
+	size_t	i;
 
-	i = -1;
-	while (++i < WIN_MATRIX)
+	i = ~0UL;
+	while (WIN_MATRIX > ++i)
 	{
 		map[i].rc = fl_cr(limit, map[i].x);
 		map[i].ic = fl_ci(limit, map[i].y);

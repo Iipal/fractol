@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 15:40:19 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 17:42:58 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 09:24:08 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			fl_khook_killwindow(t_fl *fl)
 	return (0);
 }
 
-static void	add_change_color(int *color)
+static void	add_change_color(uint32_t *color)
 {
 	if (*color == IRGB_WHITE)
 		*color = IRGB_LIME;
@@ -47,8 +47,12 @@ int			fl_key_hooks(int key, t_fl *fl)
 		exit(EXIT_SUCCESS);
 	}
 	if (key == MINUS_KEYBOARD || key == MINUS_NUMPAD)
-		if ((fl->depth -= DEPTH_INC) < DEPTH_MIN)
+	{
+		if ((fl->depth - DEPTH_INC) <= DEPTH_MIN)
 			fl->depth = DEPTH_MIN;
+		else
+			fl->depth -= DEPTH_INC;
+	}
 	if (key == PLUS_NUMPAD || key == PLUS_KEYBOARD)
 		if ((fl->depth += DEPTH_INC) > DEPTH_MAX)
 			fl->depth = DEPTH_MAX;

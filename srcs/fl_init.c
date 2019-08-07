@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 12:17:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/30 17:26:54 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/08/07 09:09:13 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static t_limit	*add_set_limits(t_fl *fl)
 {
 	t_limit	*out;
 
-	_NOTIS_N(out = malloc(sizeof(t_limit)));
-	if (fl->mnum == 1)
+	MEM(t_limit, out, 1UL, E_ALLOC);
+	if (1 == fl->mnum)
 		*out = (t_limit){0.5, -2.0, 1.25, -1.25};
 	else
 		*out = (t_limit){2.25, -2.25, 2, -2};
@@ -28,15 +28,15 @@ static t_limit	*add_set_limits(t_fl *fl)
 static t_map	*add_init_map(t_fl *fl)
 {
 	t_map	*out;
-	int		x;
-	int		y;
-	int		i;
+	size_t	x;
+	size_t	y;
+	size_t	i;
 
-	_NOTIS_N(out = malloc(sizeof(t_map) * (WIN_MATRIX + 1)));
-	x = 0;
-	y = 0;
-	i = 0;
-	while (y < WIN_Y)
+	MEM(t_map, out, WIN_MATRIX + 1, E_ALLOC);
+	x = 0UL;
+	y = 0UL;
+	i = ~0UL;
+	while (WIN_Y > ++i)
 	{
 		if (x == WIN_X && !(x = 0))
 			++y;
@@ -53,15 +53,16 @@ bool			fl_init_fractol(t_fl *fl)
 	int	sl;
 	int	end;
 
-	*fl = (t_fl){NULL, fl->mode, fl->mnum, NULL, NULL, {0, 0, 0, 0},
-		IRGB_WHITE, DEPTH_DEF, 0, 0, false};
-	_NOTIS_F(fl->mlx = malloc(sizeof(t_mlx)));
-	_NOTIS_F(MPTR = mlx_init());
-	_NOTIS_F(WPTR = mlx_new_window(MPTR, WIN_X, WIN_Y, fl->mode));
-	_NOTIS_F(IPTR = mlx_new_image(MPTR, WIN_X, WIN_Y));
-	_NOTIS_F(SPTR = (uint*)mlx_get_data_addr(IPTR, &bpp, &sl, &end));
-	_NOTIS_F(fl->limit = add_set_limits(fl));
-	_NOTIS_F(fl->map = add_init_map(fl));
+	*fl = (t_fl){NULL, fl->mode, NULL, NULL, {0, 0, 0, 0},
+		IRGB_WHITE, DEPTH_DEF, 0, 0, false, fl->mnum};
+	MEM(t_mlx, fl->mlx, 1UL, E_ALLOC);
+	NO_F(fl->mlx->mlx = mlx_init());
+	NO_F(fl->mlx->win = mlx_new_window(fl->mlx->mlx, WIN_X, WIN_Y, fl->mode));
+	NO_F(fl->mlx->img = mlx_new_image(fl->mlx->mlx, WIN_X, WIN_Y));
+	NO_F(fl->mlx->screen
+		= (uint32_t*)mlx_get_data_addr(fl->mlx->img, &bpp, &sl, &end));
+	NO_F(fl->limit = add_set_limits(fl));
+	NO_F(fl->map = add_init_map(fl));
 	fl_refresh_screen(fl);
 	return (true);
 }
